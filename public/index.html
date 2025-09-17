@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chat App</title>
+<!-- <link rel="stylesheet" href="/styles.css"> -->
+<style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; }
+.container { display:flex; height:100vh; }
+.sidebar { width:200px; background:#f4f4f4; padding:1rem; box-shadow: 2px 0 5px rgba(0,0,0,0.05); }
+.chat { flex:1; display:flex; flex-direction:column; }
+header { padding: 0.5rem; display:flex; gap:0.5rem; }
+#messages { list-style:none; padding:1rem; margin:0; flex:1; overflow:auto; }
+#form { display:flex; padding:0.5rem; gap:0.5rem; }
+#input { flex:1; padding:0.5rem; }
+.ts { color: #888; font-size:0.8rem; margin-left:0.5rem; }
+.typing { padding:0 1rem 0.5rem; color:#666; font-style:italic; }
+</style>
+</head>
+<body>
+<div class="container">
+<aside class="sidebar">
+<h2>Users</h2>
+<ul id="users"></ul>
+</aside>
+
+
+<main class="chat">
+<header>
+<input id="username" placeholder="Enter your name" />
+<button id="joinBtn">Join</button>
+</header>
+
+
+<ul id="messages"></ul>
+
+
+<div class="typing" id="typing"></div>
+
+
+<form id="form">
+<input id="input" autocomplete="off" placeholder="Type a message..." />
+<button>Send</button>
+</form>
+</main>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
